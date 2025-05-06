@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_my_module_properties,my_module.properties,model_my_module_property,base.group_user,1,1,1,1
+access_my_module_owner,my_module.owner,model_my_module_owner,base.group_user,1,1,1,1

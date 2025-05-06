@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+  <!-- property view form -->
+  <record id="property_view_form" model="ir.ui.view">
+    <field name="name">Property Form</field>
+    <field name="model">my_module.property</field>
+    <field name="arch" type="xml">
+      <form edit="1" delete="1" create="1" >
+        <sheet>
+          <header>
+            <button name="change_state_to_draft" string="Draft" invisible="state == 'draft'" type="object" class="btn-primary" />
+            <button name="change_state_to_pending" string="Pending" invisible="state != 'draft'" type="object" class="btn-warning" />
+            <button name="change_state_to_sold" string="Sold" invisible="state != 'pending'" type="object" class="btn-success" />
+
+            <field name="state" widget="statusbar" options="{'clickable': 0}"/>
+          </header>
+
+          <div class="oe_title">
+            <label for="name" string="Property Name" />
+            <h1>
+              <field name="name" required="1" placeholder="Enter property name"/>
+            </h1>
+          </div>
+
+          <separator />
+          
+          <group>
+            <group string="Property main details">
+              <field name="post_code" placeholder="Enter postal code" size="10"/>
+              <field name="expected_price" widget="monetary"/>
+              <field name="selling_price" widget="monetary"/>
+              <field name="diff_price" />
+              <field name="bedrooms" widget="integer"/>
+              <field name="bathrooms" widget="integer"/>
+            </group>
+
+            <group string="Property features">
+              <field name="garages" widget="boolean_toggle"/>
+              <field name="garden" widget="boolean_toggle"/>
+              <field name="garden_area" widget="float" />
+              <field name="garden_orientation" widget="selection" />
+              <field name="date_availability" widget="date"/>
+            </group>
+
+            <notebook>
+              <page string="owner of property">
+                <field name="owner_id" widget="many2one_avatar"/>
+              </page>
+              <page string="Property description">
+                <field name="description" widget="text" placeholder="Add detailed property description"/>
+              </page>
+            </notebook>
+
+          </group>
+        </sheet>  
+      </form>
+    </field>
+  </record>
+
+
+  <!-- property view tree -->
+  <record id="property_view_tree" model="ir.ui.view">
+    <field name="name">Property Tree</field>
+    <field name="model">my_module.property</field>
+    <field name="arch" type="xml">
+      <tree class="tree_class" multi_edit="1" edit="1" delete="1" create="1" >
+        <field name="state" 
+          optional="show" widget="badge" 
+          decoration-info="state == 'draft'" 
+          decoration-warning="state == 'pending'" 
+          decoration-success="state == 'sold'" 
+        />
+        <field name="name" string="Property Name" decoration-bf="1"/>
+        <field name="post_code" optional="show"/>
+        <field name="expected_price" sum="Total Expected"/>
+        <field name="selling_price" sum="Total Sold" optional="hide"/>
+        <field name="date_availability" widget="date"/>
+        <field name="bedrooms" decoration-info="bedrooms > 3"/>
+        <field name="bathrooms" decoration-warning="bathrooms > 2"/>
+        <field name="garages" widget="boolean_toggle"/>
+        <field name="garden" widget="boolean_toggle"/>
+        <field name="garden_area" optional="show" widget="float"/>
+        <field name="garden_orientation" widget="selection"/>
+        <field name="description" optional="hide" widget="text"/>
+        <field name="create_date" optional="show" widget="datetime"/>
+        <field name="write_date" optional="hide" widget="datetime"/>
+      </tree>
+    </field>
+  </record>
+
+
+  <!-- property search  -->
+  <record id="property_view_search" model="ir.ui.view">
+    <field name="name">Property search</field>
+    <field name="model">my_module.property</field>
+    <field name="arch" type="xml">
+    <search>
+      <!-- search fields  -->
+      <field name="name" string="Property Name" />
+      <field name="post_code" string="Post Code" />
+
+      <!-- filters  -->
+      <filter name="is_garden" string="with garden" domain="[('garden' , '=' , True)]"/>
+      <filter name="is_not_garden" string="without garden" domain="[('garden' , '=' , False)]"/>
+    
+      <!-- group by  -->
+      <filter name="group_by_garden" string="Garden" context="{'group_by': 'garden'}" />
+    </search>
+    </field>
+  </record>
+
+
+  <!-- property action to open the property view -->
+  <record id="property_action" model="ir.actions.act_window">
+    <field name="name">Properties</field>
+    <field name="res_model">my_module.property</field>
+    <field name="view_mode">tree,form,kanban,graph,pivot</field>
+  </record>
+
+
+  <!-- property menu items -->
+  <menuitem
+    id="property_menu_items"
+    name="Properties list"
+    parent="property_menu"
+    action="property_action"
+    sequence="10"
+  />
+</odoo>

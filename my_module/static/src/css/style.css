@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@layer components {
+    .tree_class thead{
+        @apply bg-gradient-to-tr from-blue-400 to-blue-700;
+    }
+    .tree_class table thead tr div {
+        @apply text-white text-center;
+    }
+    .tree_class table td[name="name"] , .tree_class table th[data-name="name"] {
+        @apply !w-80;
+    }
+}

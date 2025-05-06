@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <menuitem 
+    id="my_module_root_menu"
+    name="Real Estate"
+    sequence="10"
+    web_icon="my_module,static/description/icon.png"
+  />
+
+  <menuitem 
+    id="property_menu"
+    name="Properties"
+    parent="my_module_root_menu"
+    sequence="10"
+  />
+
+  <menuitem 
+    id="owner_menu"
+    name="Owners"
+    parent="my_module_root_menu"
+    sequence="10"
+  />
+
+</odoo>
