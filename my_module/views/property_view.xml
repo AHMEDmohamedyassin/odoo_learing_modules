@@ -34,6 +34,7 @@
           <group>
             <group string="Property main details">
               <field name="post_code" placeholder="Enter postal code" size="10"/>
+              <field name="expected_selling_date" optional="show" widget="date"/>
               <field name="expected_price" widget="monetary"/>
               <field name="selling_price" widget="monetary"/>
               <field name="diff_price" />
@@ -85,7 +86,7 @@
     <field name="name">Property Tree</field>
     <field name="model">my_module.property</field>
     <field name="arch" type="xml">
-      <tree class="tree_class" multi_edit="1" edit="1" delete="1" create="1" >
+      <tree class="tree_class" multi_edit="1" edit="1" delete="1" create="1" decoration-danger="late == True">
         <field name="state" 
           optional="show" widget="badge" 
           decoration-info="state == 'draft'" 
@@ -94,6 +95,7 @@
         />
         <field name="name" string="Property Name" decoration-bf="1"/>
         <field name="post_code" optional="show"/>
+        <field name="expected_selling_date" optional="show" widget="date"/>
         <field name="expected_price" sum="Total Expected"/>
         <field name="selling_price" sum="Total Sold" optional="hide"/>
         <field name="date_availability" widget="date"/>
@@ -109,6 +111,8 @@
 
         <!-- archived field -->
         <field name="active" invisible="1"/>
+        <!-- field for cron job decoration , making it invisible as it is only required for decoration -->
+        <field name="late" invisible="1"/>
       </tree>
     </field>
   </record>
@@ -151,6 +155,20 @@
     <field name="state">code</field>
     <field name="code">
       action = records.make_sold_properties()
+    </field>
+  </record>
+
+  <!-- job cron -->
+  <record id="property_job_cron" model="ir.cron">
+    <field name="name">Check Expected Selling Date</field>
+    <field name="model_id" ref="model_my_module_property"/>
+    <field name="interval_number">1</field>
+    <field name="interval_type">days</field>
+    <field name="numbercall">-1</field>
+    <field name="active">True</field>
+    <field name="state">code</field>
+    <field name="code">
+      model.check_expected_selling_date()
     </field>
   </record>
 

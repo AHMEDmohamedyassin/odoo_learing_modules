@@ -43,6 +43,8 @@ class Property(models.Model):
         ('pending', 'Pending'),
         ('sold', 'Sold'),
     ], string='State', default='draft')
+    expected_selling_date = fields.Date(string='Expected Selling Date' , default=fields.Date.today())
+    late = fields.Boolean(default=False)
     # computed field
     diff_price = fields.Float(compute='_compute_diff_price' , store=False , readonly=False , string='Difference Price')
 
@@ -129,6 +131,15 @@ class Property(models.Model):
             rec.state = 'sold'
 
     
+    #############################################################################
+    # job cron
+    #############################################################################
+    def check_expected_selling_date(self):
+        properties_ids = self.search([])
+        for rec in properties_ids:
+            if rec.expected_selling_date < fields.Date.today():
+                rec.late = True
+
     #############################################################################
     # crud methods
     #############################################################################
