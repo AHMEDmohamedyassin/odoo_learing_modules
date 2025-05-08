@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+  <!-- contact view form -->
+  <record id="contact_view_form" model="ir.ui.view">
+    <field name="name">contact Form</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <!-- elements inside widget may not be selected with name -->
+        <field name="vat" position="after">
+            <field name="owner_id" widget="many2one_tags"/>
+            <field name="owner_name" />
+            <field name="owner_address" />
+        </field>
+        <!-- <xpath expr="//field[@name='title']" position="after">
+            <field name="owner_id" widget="many2one_tags"/>
+        </xpath> -->
+    </field>
+  </record>
+
+
+</odoo>
+
+

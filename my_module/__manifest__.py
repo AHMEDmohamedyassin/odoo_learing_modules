@@ -15,7 +15,7 @@
     'application': True,
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base' , 'contacts' , 'mail'],
 
     # always loaded
     'data': [
@@ -23,6 +23,7 @@
         'views/base_menu.xml',
         'views/property_view.xml',
         'views/owner_view.xml',
+        'views/contact_view.xml',
     ],
 
     # assets

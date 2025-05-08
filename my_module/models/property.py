@@ -11,13 +11,16 @@ class Property(models.Model):
     _name = 'my_module.property'
     _description = 'Real Estate Property'
     _order = 'create_date desc'
+    _inherit = ['mail.thread' , 'mail.activity.mixin']
+    _rec_name = 'name'  # by default the name field is the record name
+    active = fields.Boolean(string='Active', default=True) # archived field
 
 
 
     #############################################################################
     # fields 
     #############################################################################
-    name = fields.Char(string='Property Name', required=True, index=True)
+    name = fields.Char(string='Property Name', required=True, index=True , tracking=True)
     post_code = fields.Char(string='Postal Code', size=10 , index=True)
     description = fields.Text(string='Description', help='Detailed property description')
     date_availability = fields.Date(string='Available From', default=fields.Date.today())
@@ -46,8 +49,9 @@ class Property(models.Model):
     #############################################################################
     # relations
     #############################################################################
-    # owner_id = fields.Many2one(comodel_name='my_module.owner', string='Owner')
     owner_id = fields.Many2one('my_module.owner' , 'Owner')
+    owner_name = fields.Char(related='owner_id.name' , string='Owner Name' , readonly=False)
+    owner_address = fields.Char(related='owner_id.address' , string='Owner Address' , readonly=False)
 
 
     #############################################################################
@@ -71,7 +75,9 @@ class Property(models.Model):
             if record.bathrooms < 1:
                 raise ValidationError('Bathrooms must be at least 1')
 
-    # computed field
+    #############################################################################
+    # onchange api , depends api , computed field
+    ##############################################################################
     # depends api : accept view fields (simple fields) , model fields (related fields) , relation fields (related model fields)
     # depends api is commonly used with computed field
     # return true record ( recorded values in database )
@@ -94,8 +100,14 @@ class Property(models.Model):
                         'message' : 'Expected price must be positive'
                     }
                 }
-
+    #############################################################################
+    # buttons methods
+    #############################################################################
     # state field with buttons control
+    def make_sold_properties(self):
+        for rec in self:
+            rec.state = 'sold'
+
     def change_state_to_draft(self):
         for rec in self:
             rec.state = 'draft'
@@ -108,8 +120,18 @@ class Property(models.Model):
     def change_state_to_sold(self):
         for rec in self:
             rec.state = 'sold'
-        
-    # #crud methods
+
+    #############################################################################
+    # server action
+    #############################################################################
+    def make_sold_properties(self):
+        for rec in self:
+            rec.state = 'sold'
+
+    
+    #############################################################################
+    # crud methods
+    #############################################################################
     # @api.model_create_multi
     # def create(self ,val):
     #     res = super(Property , self).create(val)

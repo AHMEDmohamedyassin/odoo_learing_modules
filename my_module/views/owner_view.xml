@@ -19,17 +19,35 @@
 
           <separator />
           
-          <group>
-            <group string="owner main details">
-              <field name="phone"/>
-              <field name="address"/>
+          <notebook>
+            <page string="owner main details">
+              <group>
+                <field name="phone"/>
+                <field name="address"/>
             </group>
 
             <group string="Properties">
-              <field name="property_ids" widget="many2many_tags"/>
+                <field name="property_ids" widget="many2many_tags"/>
             </group>
 
-          </group>
+            </page>
+
+            <page string="owner properties">
+              <field name="property_ids" >
+                <!-- <tree editable="bottom"> -->
+                <tree >
+                  <field name="name"/>
+                  <field name="post_code"/>
+                  <field name="description"/>
+                  <field name="date_availability"/>
+                  <field name="expected_price"/>
+                  <field name="selling_price"/>
+                </tree>
+              </field>
+            </page>
+
+
+          </notebook>
         </sheet>  
       </form>
     </field>

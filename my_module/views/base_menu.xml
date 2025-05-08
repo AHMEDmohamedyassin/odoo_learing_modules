@@ -20,5 +20,4 @@
     parent="my_module_root_menu"
     sequence="10"
   />
-
 </odoo>
