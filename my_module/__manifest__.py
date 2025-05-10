@@ -24,6 +24,7 @@
         'views/property_view.xml',
         'views/owner_view.xml',
         'views/contact_view.xml',
+        'reports/property_report.xml',
     ],
 
     # assets

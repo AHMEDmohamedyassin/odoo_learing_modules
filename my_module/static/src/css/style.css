@@ -10,4 +10,5 @@
     .tree_class table td[name="name"] , .tree_class table th[data-name="name"] {
         @apply !w-80;
     }
+
 }

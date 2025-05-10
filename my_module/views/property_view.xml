@@ -12,6 +12,10 @@
         <sheet>
           <!-- header -->
           <header>
+            <!-- env action -->
+            <button name="env_action" string="Env Action" type="object" class="btn-info" />
+            
+            <!-- state buttons -->
             <button name="change_state_to_draft" string="Draft" invisible="state == 'draft'" type="object" class="btn-primary" />
             <button name="change_state_to_pending" string="Pending" invisible="state != 'draft'" type="object" class="btn-warning" />
             <button name="change_state_to_sold" string="Sold" invisible="state != 'pending'" type="object" class="btn-success" />

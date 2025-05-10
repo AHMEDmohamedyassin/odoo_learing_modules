@@ -141,6 +141,17 @@ class Property(models.Model):
                 rec.late = True
 
     #############################################################################
+    # env action
+    #############################################################################
+    def env_action(self):
+        return self.env['my_module.owner'].create({
+            'name' : 'John Doe2',
+            'address' : '123 Main St, Anytown, USA',
+            'phone' : '1234567890',
+            'property_ids' : [(4, self.id)]
+        })
+
+    #############################################################################
     # crud methods
     #############################################################################
     # @api.model_create_multi
