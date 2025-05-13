@@ -20,9 +20,10 @@ class Property(models.Model):
     #############################################################################
     # fields 
     #############################################################################
-    name = fields.Char(string='Property Name', required=True, index=True , tracking=True)
+    ref = fields.Char(string='Reference' , default='New Property' , readonly=True)
+    name = fields.Char(string='Property Name', required=True, index=True , tracking=True , translate=True)
     post_code = fields.Char(string='Postal Code', size=10 , index=True)
-    description = fields.Text(string='Description', help='Detailed property description')
+    description = fields.Text(string='Description', help='Detailed property description' , translate=True)
     date_availability = fields.Date(string='Available From', default=fields.Date.today())
     expected_price = fields.Float(string='Expected Price', required=True, digits=(10,2))
     selling_price = fields.Float(string='Selling Price', readonly=False, digits=(10,2)) 
@@ -108,28 +109,38 @@ class Property(models.Model):
     # state field with buttons control
     def make_sold_properties(self):
         for rec in self:
+            self.create_property_state_history('sold')
             rec.state = 'sold'
 
     def change_state_to_draft(self):
         for rec in self:
+            self.create_property_state_history('draft')
             rec.state = 'draft'
             # rec.write({'state':'draft'})
 
     def change_state_to_pending(self):
         for rec in self:
+            self.create_property_state_history('pending')
             rec.state = 'pending'
 
     def change_state_to_sold(self):
         for rec in self:
+            self.create_property_state_history('sold')
             rec.state = 'sold'
 
     #############################################################################
-    # server action
+    # server action , firing wizard
     #############################################################################
     def make_sold_properties(self):
         for rec in self:
             rec.state = 'sold'
 
+    def change_property_state_wizard(self):
+        action = self.env['ir.actions.actions']._for_xml_id('my_module.change_state_wizard_action')
+        action['context'] = {
+            'default_property_id' : self.id
+        }
+        return action
     
     #############################################################################
     # job cron
@@ -150,30 +161,45 @@ class Property(models.Model):
             'phone' : '1234567890',
             'property_ids' : [(4, self.id)]
         })
+    
+    def create_property_state_history(self , new_state , reason = ""):
+        for rec in self:
+            self.env['my_module.property_state_history'].create({
+                'property_id' : rec.id,
+                'user_id' : self.env.user.id,
+                'old_state' : rec.state,
+                'new_state' : new_state,
+                'reason' : reason
+            })
 
     #############################################################################
-    # crud methods
+    # crud methods , handling sequence
     #############################################################################
-    # @api.model_create_multi
-    # def create(self ,val):
-    #     res = super(Property , self).create(val)
-    #     print(f"Created property")
-    #     return res
+    @api.model
+    def create(self ,val):
+        res = super(Property , self).create(val)
 
-    # @api.model
-    # def _search(self, args, offset=0, limit=None, order=None, count=False):
-    #     res = super(Property, self)._search(args, offset, limit, order, count)
-    #     print(f"Search results")
-    #     return res
+        # handling property reference sequence
+        if res.ref == 'New Property':
+            res.ref = self.env['ir.sequence'].next_by_code('my_module.property')
+
+        print(f"Created property")
+        return res
+
+    @api.model
+    def _search(self, args, offset=0, limit=None, order=None, count=False):
+        res = super(Property, self)._search(args, offset, limit, order, count)
+        print(f"Search results")
+        return res
     
-    # def write(self , vals):
-    #     res = super(Property, self).write(vals)
-    #     print(f"Edited property")
-    #     return res
+    def write(self , vals):
+        res = super(Property, self).write(vals)
+        print(f"Edited property")
+        return res
     
-    # def unlink(self):
-    #     res = super(Property, self).unlink()
-    #     print(f"Deleted property")
-    #     return res
+    def unlink(self):
+        res = super(Property, self).unlink()
+        print(f"Deleted property")
+        return res
     
     

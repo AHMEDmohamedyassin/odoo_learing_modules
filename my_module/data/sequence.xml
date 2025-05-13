@@ -1,0 +1,8 @@
+<odoo>
+    <record id="seq_property" model="ir.sequence">
+        <field name="name">Property</field>
+        <field name="code">my_module.property</field>
+        <field name="padding">4</field>
+        <field name="prefix">PRP-</field>
+    </record>
+</odoo>

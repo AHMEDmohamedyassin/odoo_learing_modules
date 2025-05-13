@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+  <!-- property view form -->
+  <record id="property_state_history_view_form" model="ir.ui.view">
+    <field name="name">Property State History Form</field>
+    <field name="model">my_module.property_state_history</field>
+    <field name="arch" type="xml">
+      <form edit="0" delete="0" create="0"  >
+        <sheet>
+            <group>
+              <group>
+                <field name="property_id" />
+                <field name="user_id" />
+              </group>
+              <group>
+                <field name="old_state" />
+                <field name="new_state" />
+              </group>
+            </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+
+  <!-- property view tree -->
+  <record id="property_state_history_view_tree" model="ir.ui.view">
+    <field name="name">Property Tree</field>
+    <field name="model">my_module.property_state_history</field>
+    <field name="arch" type="xml">
+      <tree class="tree_class" multi_edit="0" edit="0" delete="0" create="0">
+        <field name="property_id" />
+        <field name="user_id" />
+        <field name="old_state" />
+        <field name="new_state" />  
+      </tree>
+    </field>
+  </record>
+
+
+  <!-- property action to open the property view -->
+  <record id="property_state_history_action" model="ir.actions.act_window">
+    <field name="name">Property State History</field>
+    <field name="res_model">my_module.property_state_history</field>
+    <!-- <field name="view_mode">tree,form,kanban,graph,pivot</field> -->
+  </record>
+
+
+  <!-- property menu items -->
+  <menuitem
+    id="property_state_history_menu_items"
+    name="Property State History"
+    parent="property_menu"
+    action="property_state_history_action"
+    sequence="11"
+  />
+</odoo>

@@ -24,7 +24,10 @@
         'views/property_view.xml',
         'views/owner_view.xml',
         'views/contact_view.xml',
+        'views/property_state_history_view.xml',
+        'wizard/change_property_state_wizard.xml',
         'reports/property_report.xml',
+        'data/sequence.xml',
     ],
 
     # assets

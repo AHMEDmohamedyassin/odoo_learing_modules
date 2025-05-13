@@ -1,0 +1,619 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* my_module
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-13 17:37+0000\n"
+"PO-Revision-Date: 2025-05-13 20:41+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 3.6\n"
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_form
+msgid "Add detailed property description"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_owner__address
+msgid "Address"
+msgstr "العنوان"
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__date_availability
+msgid "Available From"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__bathrooms
+#: model_terms:ir.ui.view,arch_db:my_module.property_report_template
+msgid "Bathrooms"
+msgstr "الحمامات"
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__bedrooms
+#: model_terms:ir.ui.view,arch_db:my_module.property_report_template
+msgid "Bedrooms"
+msgstr "الغرف"
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.change_state_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: my_module
+#: model:ir.actions.server,name:my_module.property_job_cron_ir_actions_server
+msgid "Check Expected Selling Date"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.change_state_wizard_form
+msgid "Confirm"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model,name:my_module.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_change_state_wizard__create_uid
+#: model:ir.model.fields,field_description:my_module.field_my_module_owner__create_uid
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__create_uid
+#: model:ir.model.fields,field_description:my_module.field_my_module_property_state_history__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_change_state_wizard__create_date
+#: model:ir.model.fields,field_description:my_module.field_my_module_owner__create_date
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__create_date
+#: model:ir.model.fields,field_description:my_module.field_my_module_property_state_history__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__description
+msgid "Description"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,help:my_module.field_my_module_property__description
+msgid "Detailed property description"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__diff_price
+msgid "Difference Price"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_change_state_wizard__display_name
+#: model:ir.model.fields,field_description:my_module.field_my_module_owner__display_name
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__display_name
+#: model:ir.model.fields,field_description:my_module.field_my_module_property_state_history__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields.selection,name:my_module.selection__my_module_change_state_wizard__state__draft
+#: model:ir.model.fields.selection,name:my_module.selection__my_module_property__state__draft
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_form
+msgid "Draft"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields.selection,name:my_module.selection__my_module_property__garden_orientation__east
+msgid "East"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.owner_view_form
+msgid "Enter owner name"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_form
+msgid "Enter postal code"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_form
+msgid "Enter property name"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_form
+msgid "Env Action"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__expected_price
+msgid "Expected Price"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__expected_selling_date
+msgid "Expected Selling Date"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,help:my_module.field_my_module_property__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_search
+msgid "Garden"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__garden_area
+msgid "Garden Area (sqm)"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__garden_orientation
+msgid "Garden Orientation"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__garages
+msgid "Has Garage"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__garden
+msgid "Has Garden"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_change_state_wizard__id
+#: model:ir.model.fields,field_description:my_module.field_my_module_owner__id
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__id
+#: model:ir.model.fields,field_description:my_module.field_my_module_property_state_history__id
+msgid "ID"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,help:my_module.field_my_module_property__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,help:my_module.field_my_module_property__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,help:my_module.field_my_module_property__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_change_state_wizard__write_uid
+#: model:ir.model.fields,field_description:my_module.field_my_module_owner__write_uid
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__write_uid
+#: model:ir.model.fields,field_description:my_module.field_my_module_property_state_history__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_change_state_wizard__write_date
+#: model:ir.model.fields,field_description:my_module.field_my_module_owner__write_date
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__write_date
+#: model:ir.model.fields,field_description:my_module.field_my_module_property_state_history__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__late
+msgid "Late"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property_state_history__new_state
+msgid "New State"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields.selection,name:my_module.selection__my_module_property__garden_orientation__north
+msgid "North"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,help:my_module.field_my_module_property__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,help:my_module.field_my_module_property__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property_state_history__old_state
+msgid "Old State"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__owner_id
+#: model:ir.model.fields,field_description:my_module.field_res_partner__owner_id
+#: model:ir.model.fields,field_description:my_module.field_res_users__owner_id
+msgid "Owner"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__owner_address
+#: model:ir.model.fields,field_description:my_module.field_res_partner__owner_address
+#: model:ir.model.fields,field_description:my_module.field_res_users__owner_address
+msgid "Owner Address"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__owner_name
+#: model:ir.model.fields,field_description:my_module.field_res_partner__owner_name
+#: model:ir.model.fields,field_description:my_module.field_res_users__owner_name
+msgid "Owner Name"
+msgstr ""
+
+#. module: my_module
+#: model:ir.actions.act_window,name:my_module.owner_action
+#: model:ir.ui.menu,name:my_module.owner_menu
+msgid "Owners"
+msgstr ""
+
+#. module: my_module
+#: model:ir.ui.menu,name:my_module.owner_menu_items
+msgid "Owners list"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields.selection,name:my_module.selection__my_module_change_state_wizard__state__pending
+#: model:ir.model.fields.selection,name:my_module.selection__my_module_property__state__pending
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_form
+msgid "Pending"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_owner__phone
+msgid "Phone"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_search
+msgid "Post Code"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__post_code
+msgid "Postal Code"
+msgstr ""
+
+#. module: my_module
+#: model:ir.actions.act_window,name:my_module.property_action
+#: model:ir.ui.menu,name:my_module.property_menu
+#: model_terms:ir.ui.view,arch_db:my_module.owner_view_form
+msgid "Properties"
+msgstr ""
+
+#. module: my_module
+#: model:ir.ui.menu,name:my_module.property_menu_items
+msgid "Properties list"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_change_state_wizard__property_id
+#: model:ir.model.fields,field_description:my_module.field_my_module_owner__property_ids
+#: model:ir.model.fields,field_description:my_module.field_my_module_property_state_history__property_id
+msgid "Property"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_report_template
+msgid "Property Data"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__name
+#: model_terms:ir.ui.view,arch_db:my_module.property_report_template
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_form
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_search
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_tree
+msgid "Property Name"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model,name:my_module.model_my_module_change_state_wizard
+msgid "Property State Change wizard"
+msgstr ""
+
+#. module: my_module
+#: model:ir.actions.act_window,name:my_module.property_state_history_action
+#: model:ir.model,name:my_module.model_my_module_property_state_history
+#: model:ir.ui.menu,name:my_module.property_state_history_menu_items
+msgid "Property State History"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_form
+msgid "Property description"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_form
+msgid "Property features"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_form
+msgid "Property main details"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.constraint,message:my_module.constraint_my_module_property_unique_name
+msgid "Property name must be unique"
+msgstr ""
+
+#. module: my_module
+#: model:ir.actions.server,name:my_module.change_property_state_server_action
+msgid "Property state change"
+msgstr ""
+
+#. module: my_module
+#: model:ir.ui.menu,name:my_module.my_module_root_menu
+msgid "Real Estate"
+msgstr "العقارات"
+
+#. module: my_module
+#: model:ir.model,name:my_module.model_my_module_property
+msgid "Real Estate Property"
+msgstr "العقار"
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property_state_history__reason
+msgid "Reason"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__ref
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_form
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__selling_price
+msgid "Selling Price"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields.selection,name:my_module.selection__my_module_change_state_wizard__state__sold
+#: model:ir.model.fields.selection,name:my_module.selection__my_module_property__state__sold
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_form
+msgid "Sold"
+msgstr ""
+
+#. module: my_module
+#: model:ir.actions.server,name:my_module.property_server_action
+msgid "Sold Properties"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields.selection,name:my_module.selection__my_module_property__garden_orientation__south
+msgid "South"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_change_state_wizard__state
+#: model:ir.model.fields,field_description:my_module.field_my_module_property__state
+msgid "State"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,help:my_module.field_my_module_property__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_tree
+msgid "Total Expected"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_tree
+msgid "Total Sold"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,help:my_module.field_my_module_property__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_property_state_history__user_id
+msgid "User"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields.selection,name:my_module.selection__my_module_property__garden_orientation__west
+msgid "West"
+msgstr ""
+
+#. module: my_module
+#: model:ir.actions.act_window,name:my_module.change_state_wizard_action
+msgid "change state wizard action"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_report_template
+msgid "code"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model,name:my_module.model_my_module_owner
+msgid "my_module.owner"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_owner__name
+#: model_terms:ir.ui.view,arch_db:my_module.owner_view_form
+#: model_terms:ir.ui.view,arch_db:my_module.owner_view_tree
+msgid "owner Name"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.owner_view_form
+msgid "owner main details"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_report_template
+msgid "owner name"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_form
+msgid "owner of property"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.owner_view_form
+msgid "owner properties"
+msgstr ""
+
+#. module: my_module
+#: model:ir.actions.report,name:my_module.property_report
+msgid "property_report"
+msgstr ""
+
+#. module: my_module
+#: model:ir.model.fields,field_description:my_module.field_my_module_change_state_wizard__reason
+msgid "reason"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_search
+msgid "with garden"
+msgstr ""
+
+#. module: my_module
+#: model_terms:ir.ui.view,arch_db:my_module.property_view_search
+msgid "without garden"
+msgstr ""
