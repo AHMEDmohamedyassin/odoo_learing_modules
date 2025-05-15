@@ -10,6 +10,8 @@
     <field name="arch" type="xml">
       <form edit="1" delete="1" create="1" >
         <sheet>
+          <!-- rippon  -->
+          <widget name="web_ribbon" title="archived" bg_color="text-bg-danger" invisible="active" />
           <!-- header -->
           <header>
             <!-- env action -->

@@ -155,6 +155,9 @@ class Property(models.Model):
     # env action
     #############################################################################
     def env_action(self):
+        # search domain
+        print( self.env['my_module.property'].search([ ('state' , '=' , 'draft') ]) )
+
         return self.env['my_module.owner'].create({
             'name' : 'John Doe2',
             'address' : '123 Main St, Anytown, USA',
