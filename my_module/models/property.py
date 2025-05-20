@@ -96,7 +96,7 @@ class Property(models.Model):
         for rec in self:
             print('expected_price changed')
             if rec.expected_price < 0:
-                return {
+                return {    # server side warning
                     'warning' : {
                         'type' : 'warning',
                         'title' : 'value error warning',
@@ -205,4 +205,45 @@ class Property(models.Model):
         print(f"Deleted property")
         return res
     
+    #############################################################################
+    # smart buttons action
+    #############################################################################
+    # set to default and client side notification 
+    def action_set_default(self):
+        self.ensure_one()
+        default_values = {
+            'bedrooms': 2,
+            'bathrooms': 1,
+            'garages': False,
+            'garden': False,
+            'garden_area': 0.0,
+            'garden_orientation': 'north',
+            'expected_price': 0.0,
+            'selling_price': 0.0,
+        }
+        self.write(default_values)
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': 'Success',
+                'message': 'Property has been reset to default values',
+                'sticky': False, # True 
+                'type': 'success', # warning , danger , info
+            }
+        }
+
+    # navigation
+    def action_owner_navigate(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'my_module.owner',
+            'view_mode': 'form',  # tree , kanban
+            # 'context': {      #### used in case of creating new record by setting default value inside new record form
+            #     'name': 'ahmed',
+            # },
+            # 'domain' : [('state', '=', 'draft')] ,   ### used to filter tree data
+            'target': 'current', # new (pop up window) , inline (like wizard)
+            'res_id': self.owner_id.id   # open specific user 
+        }
     

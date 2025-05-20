@@ -10,6 +10,22 @@
     <field name="arch" type="xml">
       <form edit="1" delete="1" create="1" >
         <sheet>
+          <div name="button_box" class="oe_button_box">
+
+            <!-- reset record to default values  -->
+            <button name="action_set_default" 
+              type="object" 
+              string="Set to Default"
+              icon="fa-rotate"
+            />
+
+            <!-- navigate to owner form -->
+            <button name="action_owner_navigate" 
+              type="object" 
+              string="owner form" icon="fa-user"
+              invisible="not owner_id"/>
+          </div>
+          
           <!-- rippon  -->
           <widget name="web_ribbon" title="archived" bg_color="text-bg-danger" invisible="active" />
           <!-- header -->
