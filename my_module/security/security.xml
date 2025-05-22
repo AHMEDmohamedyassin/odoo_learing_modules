@@ -21,7 +21,8 @@
         <record id="rule_property_by_user" model="ir.rule">
             <field name="name" >property.by.user</field>
             <field name="model_id" ref="my_module.model_my_module_property"/>
-            <field name="domain_force">[('create_uid' , '=' , user.id)]</field>
+            <!-- <field name="domain_force">[('create_uid' , '=' , user.id)]</field> -->
+            <field name="domain_force">[]</field>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="True"/>
             <field name="perm_create" eval="True"/>

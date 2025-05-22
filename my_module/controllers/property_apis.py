@@ -1,5 +1,6 @@
 from odoo import http
 from odoo.http import request
+import json
 
 def serialize (prop):
     return {
@@ -12,6 +13,10 @@ def serialize (prop):
 
 class PropertyApis(http.Controller):
     _base = '/api/v1'
+
+    ##############################################
+    ### get product data ###
+    ##############################################
     @http.route(_base + "/<int:id>" , methods=["GET"] , type="http" , auth="none" , csrf=False)
     def get(self , id):
         try:
@@ -35,6 +40,75 @@ class PropertyApis(http.Controller):
                 'data' : serialize(rec)
             } , status=200)
         except Exception as error:
-            request.make_json_response({
+            return request.make_json_response({
                 'message' : error
             } , status=400)
+
+    
+    ###########################################
+    ### create property
+    ###########################################
+    @http.route(_base , methods=["POST"] , type="http" , auth="none" , csrf=False)
+    def create(self):
+        try:
+            # Get the raw request data
+            data = request.httprequest.data.decode('utf-8')
+            vals = json.loads(data)
+
+            res = request.env['my_module.property'].sudo().create(vals)
+
+            # return data of created property if it is created
+            if res : 
+                return request.make_json_response(serialize(res) , status=200)
+
+            return request.make_json_response({
+                "message" : "something went wrong"
+            } , status=400)
+        except Exception as error : 
+            return request.make_json_response({
+                "message" : str(error)
+            } , status=400)
+
+    
+    ###########################################
+    ### update property
+    ###########################################
+    @http.route(_base , methods=["PUT"] , auth="none" , csrf=False , type="json")
+    def update(self):
+        try:
+            args = request.httprequest.data.decode()
+            vals = json.loads(args)
+
+            #check if id is provided
+            if not vals['id']: 
+                return {
+                    'status': 'error',
+                    'message': 'id must be provided'
+                }
+
+            # getting property
+            property = request.env['my_module.property'].sudo().browse(int(vals['id']))
+            
+            # check if property exists 
+            if not property.exists():
+                return {
+                    'status': 'error',
+                    'message': 'property not exists'
+                }
+
+            update_vals = {k: v for k, v in vals.items() if k != 'id'}
+
+            # handle update
+            property.write(update_vals)
+            
+            # return success data with updated property
+            return {
+                'status': 'success',
+                'data': serialize(property)
+            }
+
+        except Exception as error: 
+            return {
+                'status': 'error',
+                'message': str(error)
+            }
