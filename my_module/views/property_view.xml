@@ -24,10 +24,17 @@
               type="object" 
               string="owner form" icon="fa-user"
               invisible="not owner_id"/>
+
+            <!-- calling api -->
+            <button name="action_call_api" 
+              type="object" 
+              string="calling api" />
+
           </div>
           
           <!-- rippon  -->
           <widget name="web_ribbon" title="archived" bg_color="text-bg-danger" invisible="active" />
+          
           <!-- header -->
           <header>
             <!-- env action -->
@@ -38,6 +45,7 @@
             <button name="change_state_to_pending" string="Pending" invisible="state != 'draft'" type="object" class="btn-warning" />
             <button name="change_state_to_sold" string="Sold" invisible="state != 'pending'" type="object" class="btn-success" />
 
+            <!-- status bar -->
             <field name="state" widget="statusbar" options="{'clickable': 0}"/>
           </header>
 

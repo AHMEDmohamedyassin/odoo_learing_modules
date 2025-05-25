@@ -1,7 +1,8 @@
 from odoo import http
 from odoo.http import request
 import json
-
+import math
+from urllib.parse import parse_qs
 def serialize (prop):
     return {
         'id' : prop.id,
@@ -112,3 +113,52 @@ class PropertyApis(http.Controller):
                 'status': 'error',
                 'message': str(error)
             }
+
+    ###########################################
+    ### search property
+    ###########################################
+    @http.route(_base + "/search" , methods=["GET"] , auth="none" , csrf=False , type="http")
+    def search(self):
+        try:
+            query = parse_qs(request.httprequest.query_string.decode())
+
+            print(query)
+
+            # offset
+            offset = 0
+            limit = 10
+            page = 1
+
+            # limit 
+            if query.get('limit') and int(query.get('limit')[0]) < limit:
+                limit = int(query.get('limit')[0])
+
+            # offset
+            if query.get('page') and float(query.get('page')[0]) > 0:
+                page = math.ceil(float(query.get('page')[0]))
+                offset = (page - 1) * limit
+
+
+            # searching
+            searching = []
+
+            # state
+            if query.get('state'):
+                searching += [ ('state' , '=' , query.get('state')[0] ) ]
+
+
+            property = request.env['my_module.property'].sudo().search(searching , offset=offset , limit=limit , order='id desc')
+            property_count = request.env['my_module.property'].sudo().search_count(searching)
+            
+            return request.make_json_response({
+                'status': 'success',
+                'data' : [serialize(prop) for prop in property] , 
+                'page' : f'{page} / {math.ceil(property_count / limit)}' , 
+                'limit' : limit ,
+                'total' : property_count
+            } , status=200)
+        except Exception as error:
+            return request.make_json_response({
+                'status': 'error',
+                'message': str(error)
+            } , status=400)

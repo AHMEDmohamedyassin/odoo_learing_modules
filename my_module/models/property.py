@@ -2,6 +2,7 @@
 
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
+import requests
 
 
 class Property(models.Model):
@@ -246,4 +247,12 @@ class Property(models.Model):
             'target': 'current', # new (pop up window) , inline (like wizard)
             'res_id': self.owner_id.id   # open specific user 
         }
+
+    #calling apis 
+    def action_call_api(self):
+        try:
+            response =requests.get('http://localhost:8069/api/v1/search')
+            print(response.json())
+        except Exception as e:
+            print(e)
     
