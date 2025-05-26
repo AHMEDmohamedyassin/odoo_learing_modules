@@ -219,6 +219,13 @@
   </record>
 
 
+  <!-- owl list view action  -->
+  <record id="list_view_action" model="ir.actions.client">
+    <field name="name">list view owl</field>
+    <field name="tag">my_module.list_view_action</field>
+  </record>
+
+
   <!-- property menu items -->
   <menuitem
     id="property_menu_items"
@@ -226,5 +233,14 @@
     parent="property_menu"
     action="property_action"
     sequence="10"
+  />
+
+  <!-- owl list view menu item -->
+  <menuitem
+    id="property_menu_items_owl"
+    name="Properties list OWL"
+    parent="property_menu"
+    action="list_view_action"
+    sequence="20"
   />
 </odoo>

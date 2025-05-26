@@ -1,0 +1,5 @@
+<templates xml:space="preserve">
+    <t t-name="my_module.ListView">
+        <h1 class="!text-red-600">hello world</h1>
+    </t>
+</templates>

@@ -34,8 +34,14 @@
     # assets
     'assets': {
         'web.assets_backend': [
+            # CSS files first
             'my_module/static/dist/css/main.css',
             'my_module/static/src/css/style.css',
+            'my_module/static/src/components/listView/listView.css',
+            # XML template before JS
+            'my_module/static/src/components/listView/listView.xml',
+            # JS files last
+            'my_module/static/src/components/listView/listView.js',
         ],
     },
 
