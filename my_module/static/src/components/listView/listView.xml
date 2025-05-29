@@ -1,5 +1,71 @@
 <templates xml:space="preserve">
     <t t-name="my_module.ListView">
-        <h1 class="!text-red-600">hello world</h1>
+        <div id="tailwind_root">
+            <h1 class="text-red-600">hello world</h1>
+
+            <form class="max-w-sm mx-auto mb-10" t-on-submit.prevent="ChangeName">
+              <div class="mb-1">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                <input type="text" id="name" t-model="state.name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required="required" />
+              </div>
+              <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+            </form>
+
+
+            <div class="relative overflow-x-auto">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                property name
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                description
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                post_code
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                selling_price
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-if="state.records">
+                            <t t-foreach="state.records" t-as="record" t-key="record.id">
+                                <tr class="bg-white border-b  border-gray-200">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                        <t t-esc="record.name" />
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        <t t-esc="record.description" />
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <t t-esc="record.post_code" />
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <t t-esc="record.selling_price" />
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <button
+                                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" 
+                                            t-on-click="update_record.bind(this, record.id)"
+                                        >update</button>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <tr>
+                                <td colspan="4" class="px-6 py-4 text-center">Loading...</td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+
+        
+        
+        </div>
     </t>
 </templates>

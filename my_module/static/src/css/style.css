@@ -1,4 +1,9 @@
 @import "tailwindcss";
+/* @import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../../../node_modules/flowbite"; */
+@import 'flowbite';
+
 
 @layer components {
     .tree_class thead{
